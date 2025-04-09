@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  <%- include('./partials/head.ejs') %>
+  <%- include('./partials/navbar.ejs') %>
+  
+  <section class="container mt-5 pt-5">
+    <h1 class="mb-4">Memes Overview</h1>
+    
+    <!-- Show this message only if the user is a guest -->
+    <% if (isGuest && !isAuthenticated) { %>
+      <div class="alert alert-info">
+        You are browsing as a guest. <a href="/signup">Sign up at Meme Central</a> to see details!
+      </div>
+    <% } %>
+    
+    <!-- Search Form -->
+    <form method="GET" action="/memes" class="mb-4">
+      <div class="input-group">
+        <input type="text" name="search" class="form-control" placeholder="Search by meme name..." value="<%= search %>">
+        <button class="btn btn-outline-secondary" type="submit">Search</button>
+        <a href="/memes" class="btn btn-outline-danger">Clear</a>
+      </div>
+    </form>
+    
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <% if (isAuthenticated) { %>
+            <th>Details</th>
+          <% } else if (isGuest) { %>
+            <th>Sign Up</th>
+          <% } %>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (Array.isArray(memes) && memes.length > 0) { %>
+          <% memes.forEach((meme) => { %>
+            <tr>
+              <!-- Image Column -->
+              <td>
+                <img src="<%= meme.url %>" alt="Meme" style="max-width: 20%;" />
+              </td>
+              <!-- Name Column -->
+              <td><%= meme.name %></td>
+              <% if (user) { %>
+                <!-- Details Column -->
+                <td>
+                  <a href="/memes/<%= meme.id %>" class="btn btn-primary">Details</a>
+                </td>
+              <% } else if (isGuest) { %>
+                <!-- Sign-Up Column for Guest -->
+                <td>
+                  <a href="/signup" class="btn btn-primary">Details</a>
+                </td>
+              <% } %>
+            </tr>
+          <% }); %>
+        <% } else { %>
+          <tr>
+            <td colspan="<%= isAuthenticated ? 3 : (isGuest ? 3 : 2) %>">No memes available</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </section>
+  
+  <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

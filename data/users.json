@@ -1,0 +1,49 @@
+[
+  {
+    "id": 1,
+    "username": "Josh",
+    "password": "Josh1"
+  },
+  {
+    "id": 2,
+    "username": "FJ",
+    "password": "FJ1"
+  },
+  {
+    "id": 3,
+    "username": "Student",
+    "password": "Student1"
+  },
+  {
+    "username": "benny",
+    "password": "1"
+  },
+  {
+    "username": "admin",
+    "password": "1"
+  },
+  {
+    "username": "clive",
+    "password": "1"
+  },
+  {
+    "username": "jeff",
+    "password": "1"
+  },
+  {
+    "username": "rod",
+    "password": "1"
+  },
+  {
+    "username": "akira",
+    "password": "akira"
+  },
+  {
+    "username": "jane",
+    "password": "jane"
+  },
+  {
+    "username": "jansal57",
+    "password": "lol"
+  }
+]

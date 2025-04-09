@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  <%- include('./partials/head.ejs') %>'
+  <%- include('./partials/navbar.ejs') %>
+  
+  <section class="container mt-5 pt-5">
+    <h1 class="mb-4">Login</h1>
+    
+    <form method="POST" action="/login">
+      <div class="mb-3">
+        <label for="username" class="form-label">Username:</label>
+        <input type="text" id="username" name="username" class="form-control" required autofocus>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" id="password" name="password" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+    
+    <p class="mt-3">
+      Don't have an account? <a href="/login/signup">Sign Up</a>
+    </p>
+  </section>
+  
+  <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

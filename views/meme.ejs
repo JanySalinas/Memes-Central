@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  <%- include('./partials/head.ejs') %>
+  <%- include('./partials/navbar.ejs') %>
+  <section class="container mt-5 pt-5">
+    <h1 class="mb-4">Meme Details</h1>
+    <% if (meme) { %>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= meme.name %></h5>
+          <p class="card-text"><strong>ID:</strong> <%= meme.id %></p>
+          <p class="card-text"><strong>URL:</strong> <a href="<%= meme.url %>" target="_blank"><%= meme.url %></a></p>
+          <p class="card-text"><strong>Dimensions:</strong> <%= meme.width %> x <%= meme.height %></p>
+          <img src="<%= meme.url %>" alt="Meme Image" class="img-fluid">
+        </div>
+      </div>
+    <% } else { %>
+      <p>Meme details not available.</p>
+    <% } %>
+  </section>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
